@@ -12,16 +12,11 @@
   <meta property="og:url" content="https://deepjepa.github.io/">
   <style>
     :root {
-      --ink: #18202b;
-      --muted: #667085;
-      --line: #dbe3ec;
+      --ink: #111827;
+      --muted: #60656f;
+      --line: #d8dce2;
+      --link: #2f6699;
       --paper: #ffffff;
-      --wash: #f4f7fb;
-      --blue: #2f6699;
-      --blue-dark: #234f79;
-      --teal: #2a827b;
-      --orange: #c2410c;
-      --shadow: 0 18px 48px rgba(31, 51, 73, 0.10);
     }
 
     * { box-sizing: border-box; }
@@ -29,231 +24,260 @@
     body {
       margin: 0;
       color: var(--ink);
-      background:
-        radial-gradient(circle at 10% 0%, rgba(59, 130, 246, 0.08), transparent 34rem),
-        var(--paper);
-      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.65;
+      background: var(--paper);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 1.58;
     }
+    a { color: var(--link); }
+    img { display: block; max-width: 100%; height: auto; }
+    .page { width: min(1040px, calc(100% - 40px)); margin: 0 auto; }
 
-    a { color: var(--blue); }
-    img { display: block; max-width: 100%; }
-    main { overflow: hidden; }
-    .shell { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
-
-    .hero { padding: 76px 0 34px; text-align: center; }
-    .eyebrow {
-      margin: 0 0 12px;
-      color: var(--teal);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
+    header {
+      padding: 64px 0 30px;
+      text-align: center;
     }
     h1 {
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(3.2rem, 9vw, 6.7rem);
-      line-height: 0.95;
-      letter-spacing: -0.055em;
+      font-size: clamp(3rem, 7vw, 5.2rem);
+      line-height: 1;
+      letter-spacing: -0.035em;
     }
     .subtitle {
-      margin: 18px 0 24px;
-      color: var(--blue-dark);
+      margin: 12px 0 24px;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(1.35rem, 3.2vw, 2.15rem);
-      font-weight: 700;
+      font-size: clamp(1.45rem, 3vw, 2.05rem);
+      font-weight: 400;
     }
-    .authors { margin: 0 auto 6px; max-width: 1000px; font-size: 1.02rem; }
-    .affiliations { margin: 0 auto; max-width: 980px; color: var(--muted); font-size: 0.9rem; }
-    .equal { margin: 4px 0 26px; color: var(--muted); font-size: 0.84rem; }
-    sup { font-size: 0.68em; }
-    .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
-    .button {
-      min-width: 118px;
-      padding: 11px 22px;
-      border: 1px solid var(--blue-dark);
-      border-radius: 999px;
-      color: var(--blue-dark);
-      background: var(--paper);
-      font-weight: 800;
+    .authors {
+      max-width: 980px;
+      margin: 0 auto 7px;
+      font-size: 1.02rem;
+      line-height: 1.7;
+    }
+    .affiliations, .equal {
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .equal { margin-top: 3px; }
+    sup { font-size: 0.7em; }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    nav a {
+      min-width: 96px;
+      padding: 8px 18px;
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      font-weight: 600;
       text-decoration: none;
-      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
     }
-    .button.primary { color: #fff; background: var(--blue-dark); }
-    .button:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(35, 79, 121, 0.18); }
+    nav a:first-child {
+      color: white;
+      background: var(--ink);
+    }
+    nav a:hover { text-decoration: underline; }
 
-    .hero-figure { margin: 42px auto 0; padding: 18px; background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow); }
-    .hero-figure figcaption { margin-top: 12px; color: var(--muted); font-family: Georgia, "Times New Roman", serif; font-style: italic; }
+    figure { margin: 34px 0 0; }
+    figcaption {
+      margin: 9px auto 0;
+      color: var(--muted);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 0.93rem;
+      font-style: italic;
+      text-align: center;
+    }
+    .teaser { margin-top: 38px; }
 
-    section { padding: 64px 0; }
-    section.soft { background: var(--wash); border-block: 1px solid var(--line); }
-    .section-head { display: grid; grid-template-columns: 0.36fr 1fr; gap: 32px; align-items: start; margin-bottom: 28px; }
-    .section-kicker { margin: 3px 0 0; color: var(--orange); font-size: 0.76rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
-    h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1.15; }
-    .lead { margin: 4px 0 0; color: #374151; font-size: 1.08rem; }
+    section {
+      padding: 42px 0;
+      border-top: 1px solid var(--line);
+    }
+    h2 {
+      margin: 0 0 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.8rem;
+      line-height: 1.2;
+    }
+    p { margin: 0 0 12px; }
+    .summary {
+      max-width: 880px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin: 24px 0 0;
+    }
+    .steps h3 {
+      margin: 0 0 5px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.08rem;
+    }
+    .steps p { color: var(--muted); font-size: 0.94rem; }
 
-    .paper-figure { margin: 28px 0 0; padding: 18px; background: #fff; border: 1px solid var(--line); border-radius: 16px; }
-    .paper-figure figcaption { margin-top: 12px; color: var(--muted); font-size: 0.9rem; }
-    .paper-figure strong { color: var(--ink); }
-
-    .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 28px; }
-    .principle { padding: 22px; background: #fff; border: 1px solid var(--line); border-radius: 14px; }
-    .principle .number { display: inline-grid; width: 30px; height: 30px; place-items: center; border-radius: 50%; color: #fff; background: var(--teal); font-weight: 800; }
-    .principle h3 { margin: 13px 0 6px; font-family: Georgia, "Times New Roman", serif; font-size: 1.15rem; }
-    .principle p { margin: 0; color: var(--muted); font-size: 0.93rem; }
-
-    .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 28px 0; }
-    .metric { padding: 20px; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
-    .metric b { display: block; color: var(--blue-dark); font-family: Georgia, "Times New Roman", serif; font-size: 2rem; line-height: 1; }
-    .metric span { display: block; margin-top: 8px; color: var(--muted); font-size: 0.9rem; }
-
-    .table-wrap { margin-top: 22px; overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
-    table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
-    th, td { padding: 13px 16px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; }
+    .result-line {
+      margin: 4px 0 24px;
+      padding: 10px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      text-align: center;
+      font-size: 1.02rem;
+    }
+    .result-line strong { margin: 0 5px; }
+    .table-scroll { margin-top: 28px; overflow-x: auto; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-top: 2px solid var(--ink);
+      border-bottom: 2px solid var(--ink);
+      font-variant-numeric: tabular-nums;
+    }
+    th, td {
+      padding: 9px 13px;
+      border-bottom: 1px solid var(--line);
+      text-align: right;
+      white-space: nowrap;
+    }
     th:first-child, td:first-child { text-align: left; }
-    thead th { color: var(--muted); background: #f8fafc; font-size: 0.8rem; letter-spacing: 0.04em; text-transform: uppercase; }
+    thead th { border-bottom: 1px solid var(--ink); font-weight: 600; }
     tbody tr:last-child td { border-bottom: 0; }
-    td.deep { color: var(--blue-dark); font-weight: 800; }
-    td.depth { color: var(--orange); font-weight: 700; }
+    td.deep { font-weight: 700; }
 
-    .analysis-grid { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: 24px; align-items: center; }
-    .analysis-grid p { color: #374151; font-size: 1.04rem; }
-    .quote { padding-left: 18px; border-left: 4px solid var(--teal); font-family: Georgia, "Times New Roman", serif; font-size: 1.2rem; font-style: italic; }
+    .analysis {
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr;
+      gap: 42px;
+      align-items: center;
+    }
+    .analysis figure { margin: 0; }
+    blockquote {
+      margin: 18px 0 0;
+      padding-left: 16px;
+      border-left: 3px solid var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.03rem;
+      font-style: italic;
+    }
+    pre {
+      margin: 18px 0 0;
+      padding: 16px 0;
+      overflow-x: auto;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      font: 0.88rem/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      white-space: pre;
+    }
+    footer {
+      padding: 24px 0 42px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.86rem;
+      text-align: center;
+    }
 
-    .citation { padding: 26px; border: 1px solid var(--line); border-radius: 14px; background: #101722; color: #dce5ef; overflow-x: auto; }
-    .citation code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.86rem; white-space: pre; }
-    footer { padding: 34px 0 48px; color: var(--muted); text-align: center; font-size: 0.85rem; }
-
-    @media (max-width: 760px) {
-      .shell { width: min(100% - 24px, 1120px); }
-      .hero { padding-top: 50px; }
-      .section-head, .analysis-grid { grid-template-columns: 1fr; gap: 12px; }
-      .principles, .metrics { grid-template-columns: 1fr; }
-      section { padding: 48px 0; }
-      .hero-figure, .paper-figure { padding: 10px; border-radius: 12px; }
+    @media (max-width: 720px) {
+      .page { width: min(100% - 28px, 1040px); }
+      header { padding-top: 44px; }
+      .steps, .analysis { grid-template-columns: 1fr; gap: 16px; }
+      .analysis figure { margin-top: 12px; }
+      section { padding: 34px 0; }
+      th, td { padding: 8px 10px; }
     }
   </style>
 </head>
 <body>
-  <main>
-    <header class="hero shell">
-      <p class="eyebrow">Adaptive computation for latent world-model planning</p>
+  <div class="page">
+    <header>
       <h1>DeepJEPA</h1>
       <p class="subtitle">Scaling World Models from Within</p>
-      <p class="authors">
-        Zijian Jin<sup>1,&dagger;</sup>, Yunbei Zhang<sup>2,&dagger;</sup>, Yuanzhe Liu<sup>3</sup>, Ming Liu<sup>4</sup>,
-        Baian Chen<sup>5</sup>, Weirui Ye<sup>5</sup>, Shilong Liu<sup>4,6</sup>, Marco Pavone<sup>7</sup>
-      </p>
+      <p class="authors">Zijian Jin<sup>1,&dagger;</sup>, Yunbei Zhang<sup>2,&dagger;</sup>, Yuanzhe Liu<sup>3</sup>, Ming Liu<sup>4</sup>, Baian Chen<sup>5</sup>, Weirui Ye<sup>5</sup>, Shilong Liu<sup>4,6</sup>, Marco Pavone<sup>7</sup></p>
       <p class="affiliations"><sup>1</sup>New York University &nbsp; <sup>2</sup>Tulane University &nbsp; <sup>3</sup>UIUC &nbsp; <sup>4</sup>Princeton University &nbsp; <sup>5</sup>MIT &nbsp; <sup>6</sup>Columbia University &nbsp; <sup>7</sup>Stanford University</p>
       <p class="equal"><sup>&dagger;</sup>Equal contribution</p>
-      <nav class="actions" aria-label="Project links">
-        <a class="button primary" href="https://arxiv.org/pdf/2610.00368">Paper</a>
-        <a class="button" href="https://github.com/deepjepa/DeepJEPA">Code</a>
+      <nav aria-label="Project links">
+        <a href="https://arxiv.org/pdf/2610.00368">Paper</a>
+        <a href="https://github.com/deepjepa/DeepJEPA">Code</a>
       </nav>
-      <figure class="hero-figure">
-        <img src="assets/teaser.png" alt="DeepJEPA keeps most imagined transitions shallow and refines decision-critical transitions before selecting an action.">
-        <figcaption><strong>Think before you roll.</strong> Scale the world model from within while leaving the outer planner unchanged.</figcaption>
+      <figure class="teaser">
+        <img src="assets/teaser.png" width="1980" height="612" alt="DeepJEPA keeps most imagined transitions shallow and refines decision-critical transitions before selecting an action.">
+        <figcaption><strong>Think before you roll.</strong> DeepJEPA scales the world model from within while leaving the outer planner unchanged.</figcaption>
       </figure>
     </header>
 
-    <section>
-      <div class="shell">
-        <div class="section-head">
-          <p class="section-kicker">Overview</p>
-          <div>
-            <h2>Spend computation where it can change the decision.</h2>
-            <p class="lead">World-model planners usually scale outward by rolling farther, sampling more trajectories, or optimizing longer. DeepJEPA introduces a complementary axis: adaptive recurrent depth inside each imagined transition.</p>
-          </div>
+    <main>
+      <section>
+        <div class="summary">
+          <h2>Overview</h2>
+          <p>World-model planners usually scale outward by rolling farther, sampling more trajectories, or optimizing longer. DeepJEPA introduces a complementary test-time scaling axis: adaptive recurrent depth inside each imagined transition.</p>
+          <p>A weight-tied joint-embedding predictive world model learns whether another recurrent update is worth computing for each candidate and rollout step. Most transitions remain shallow, while additional computation concentrates at decision-critical events that can change CEM rankings and the selected action.</p>
         </div>
-        <p class="lead">A weight-tied joint-embedding predictive world model learns whether another recurrent update is worth computing for each candidate and rollout step. Useful refinement concentrates at decision-critical events rather than being applied uniformly to every transition.</p>
-      </div>
-    </section>
+      </section>
 
-    <section class="soft">
-      <div class="shell">
-        <div class="section-head">
-          <p class="section-kicker">Method</p>
-          <div>
-            <h2>A budgeted computation process inside every transition.</h2>
-            <p class="lead">DeepJEPA ties parameters across recurrent updates, predicts whether to continue, and returns the selected latent state to the unchanged CEM planner.</p>
-          </div>
+      <section>
+        <h2>Method</h2>
+        <div class="steps">
+          <div><h3>1. Imagine</h3><p>Roll candidate actions through latent space using the same outer planning budget.</p></div>
+          <div><h3>2. Refine selectively</h3><p>Spend recurrent depth only when the continue head predicts that another update is worthwhile.</p></div>
+          <div><h3>3. Rank and act</h3><p>Return the selected latent predictions to CEM, where changed costs can alter the executed action.</p></div>
         </div>
-        <div class="principles">
-          <article class="principle"><span class="number">1</span><h3>Imagine</h3><p>Roll candidate actions through latent space using the same outer planning budget.</p></article>
-          <article class="principle"><span class="number">2</span><h3>Refine selectively</h3><p>Spend extra recurrent depth only when the continue head predicts another update is worthwhile.</p></article>
-          <article class="principle"><span class="number">3</span><h3>Rank and act</h3><p>Return the selected predictions to CEM, where changed costs can alter elite membership and the executed action.</p></article>
-        </div>
-        <figure class="paper-figure">
-          <img src="assets/method.png" alt="DeepJEPA inference, adaptive stopping, and training mechanism.">
-          <figcaption><strong>DeepJEPA mechanism.</strong> The model learns transition-specific depth from marginal latent prediction improvement and does not use the future target at inference.</figcaption>
+        <figure>
+          <img loading="lazy" src="assets/method.png" width="1980" height="1131" alt="DeepJEPA inference, adaptive stopping, and training mechanism.">
+          <figcaption><strong>DeepJEPA mechanism.</strong> Each imagined transition becomes a budgeted computation process whose selected prediction is returned to the unchanged outer planner.</figcaption>
         </figure>
-      </div>
-    </section>
+      </section>
 
-    <section>
-      <div class="shell">
-        <div class="section-head">
-          <p class="section-kicker">Results</p>
-          <div>
-            <h2>Better planning without uniformly deeper rollouts.</h2>
-            <p class="lead">Across five visual-control settings, DeepJEPA improves or matches the strongest fixed-depth planner while staying close to the shallow endpoint.</p>
-          </div>
-        </div>
-        <div class="metrics">
-          <div class="metric"><b>5</b><span>visual-control settings</span></div>
-          <div class="metric"><b>1.00–1.26</b><span>mean selected updates per transition</span></div>
-          <div class="metric"><b>+3.3 pp</b><span>largest gain over the best fixed depth</span></div>
-        </div>
-        <figure class="paper-figure">
-          <img src="assets/main-results.png" alt="DeepJEPA success gains, mean selected depth, and performance relative to fixed-depth baselines across five tasks.">
-          <figcaption><strong>DeepJEPA improves the fixed-depth frontier while remaining shallow on average.</strong> Values are means over three training and evaluation seed pairs.</figcaption>
+      <section>
+        <h2>Results</h2>
+        <p class="result-line"><strong>5</strong> visual-control settings &nbsp;&middot;&nbsp; <strong>1.00&ndash;1.26</strong> mean selected updates &nbsp;&middot;&nbsp; <strong>+3.3 pp</strong> largest gain over the best fixed depth</p>
+        <figure>
+          <img loading="lazy" src="assets/main-results.png" width="1980" height="598" alt="DeepJEPA success gains, mean selected depth, and performance relative to fixed-depth baselines across five tasks.">
+          <figcaption><strong>DeepJEPA improves or matches the fixed-depth frontier while remaining shallow on average.</strong> Values are means over three training and evaluation seed pairs.</figcaption>
         </figure>
-        <div class="table-wrap" role="region" aria-label="Main DeepJEPA results" tabindex="0">
+        <div class="table-scroll" role="region" aria-label="Main DeepJEPA results" tabindex="0">
           <table>
             <thead><tr><th>Task</th><th>Best fixed</th><th>DeepJEPA</th><th>Gain</th><th>Mean depth</th></tr></thead>
             <tbody>
-              <tr><td>Reacher</td><td>84.0</td><td class="deep">85.3</td><td>+1.3</td><td class="depth">1.03</td></tr>
-              <tr><td>Cube Single</td><td>79.3</td><td class="deep">79.3</td><td>0.0</td><td class="depth">1.00</td></tr>
-              <tr><td>Cube Double</td><td>72.7</td><td class="deep">74.0</td><td>+1.3</td><td class="depth">1.26</td></tr>
-              <tr><td>Cube Triple</td><td>74.0</td><td class="deep">77.3</td><td>+3.3</td><td class="depth">1.22</td></tr>
-              <tr><td>PushT</td><td>10.7</td><td class="deep">11.6</td><td>+0.9</td><td class="depth">1.02</td></tr>
+              <tr><td>Reacher</td><td>84.0</td><td class="deep">85.3</td><td>+1.3</td><td>1.03</td></tr>
+              <tr><td>Cube Single</td><td>79.3</td><td class="deep">79.3</td><td>0.0</td><td>1.00</td></tr>
+              <tr><td>Cube Double</td><td>72.7</td><td class="deep">74.0</td><td>+1.3</td><td>1.26</td></tr>
+              <tr><td>Cube Triple</td><td>74.0</td><td class="deep">77.3</td><td>+3.3</td><td>1.22</td></tr>
+              <tr><td>PushT</td><td>10.7</td><td class="deep">11.6</td><td>+0.9</td><td>1.02</td></tr>
             </tbody>
           </table>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="soft">
-      <div class="shell analysis-grid">
+      <section class="analysis">
         <div>
-          <p class="section-kicker">Analysis</p>
-          <h2>Depth follows physical interaction.</h2>
-          <p>Refinement rises sharply at PushT contact onset and during sustained Cube Triple contact, despite training without contact labels. The learned computation policy tracks changes in local dynamics rather than rollout position alone.</p>
-          <p class="quote">Interaction-aligned depth concentrates computation at the transitions most likely to alter planner rankings.</p>
+          <h2>Where computation goes</h2>
+          <p>Refinement rises at PushT contact onset and during sustained Cube Triple contact, despite training without contact labels. The learned computation policy tracks changes in local dynamics rather than rollout position alone.</p>
+          <blockquote>Allocate internal computation where it can change the planner's decision.</blockquote>
         </div>
-        <figure class="paper-figure">
-          <img src="assets/compute-allocation.png" alt="Adaptive computation rises around contact onset and sustained object contact.">
+        <figure>
+          <img loading="lazy" src="assets/compute-allocation.png" width="2902" height="702" alt="Adaptive computation rises around contact onset and sustained object contact.">
           <figcaption><strong>Adaptive computation is interaction aligned.</strong> Refinement increases near contact and falls after release.</figcaption>
         </figure>
-      </div>
-    </section>
+      </section>
 
-    <section>
-      <div class="shell">
-        <div class="section-head">
-          <p class="section-kicker">Citation</p>
-          <div><h2>DeepJEPA</h2><p class="lead">arXiv:2610.00368, 2026.</p></div>
-        </div>
-        <pre class="citation"><code>@article{jin2026deepjepa,
+      <section>
+        <h2>Citation</h2>
+        <pre><code>@article{jin2026deepjepa,
   title={DeepJEPA: Scaling World Models from Within},
   author={Jin, Zijian and Zhang, Yunbei and Liu, Yuanzhe and Liu, Ming and Chen, Baian and Ye, Weirui and Liu, Shilong and Pavone, Marco},
   journal={arXiv preprint arXiv:2610.00368},
   year={2026}
 }</code></pre>
-      </div>
-    </section>
-  </main>
-  <footer class="shell">DeepJEPA · Scaling World Models from Within</footer>
+      </section>
+    </main>
+
+    <footer>DeepJEPA &middot; Scaling World Models from Within</footer>
+  </div>
 </body>
 </html>
