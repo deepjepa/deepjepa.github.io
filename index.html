@@ -206,7 +206,10 @@
         <a href="https://github.com/deepjepa/DeepJEPA">Code</a>
       </nav>
       <figure class="teaser">
-        <img src="assets/teaser.png" width="1980" height="612" alt="DeepJEPA keeps most imagined transitions shallow and refines decision-critical transitions before selecting an action.">
+        <picture>
+          <source srcset="assets/teaser.svg" type="image/svg+xml">
+          <img src="assets/teaser.png" width="1980" height="612" alt="DeepJEPA keeps most imagined transitions shallow and refines decision-critical transitions before selecting an action.">
+        </picture>
         <figcaption><strong>Think before you roll.</strong> DeepJEPA scales the world model from within while leaving the outer planner unchanged.</figcaption>
       </figure>
     </header>
@@ -228,7 +231,10 @@
           <div><h3>3. Rank and act</h3><p>Return the selected latent predictions to CEM, where changed costs can alter the executed action.</p></div>
         </div>
         <figure>
-          <img loading="lazy" src="assets/method.png" width="1980" height="1131" alt="DeepJEPA inference, adaptive stopping, and training mechanism.">
+          <picture>
+            <source srcset="assets/method.svg" type="image/svg+xml">
+            <img loading="lazy" src="assets/method.png" width="1980" height="1131" alt="DeepJEPA inference, adaptive stopping, and training mechanism.">
+          </picture>
           <figcaption><strong>DeepJEPA mechanism.</strong> Each imagined transition becomes a budgeted computation process whose selected prediction is returned to the unchanged outer planner.</figcaption>
         </figure>
       </section>
@@ -237,7 +243,10 @@
         <h2>Results</h2>
         <p class="result-line"><strong>5</strong> visual-control settings &nbsp;&middot;&nbsp; <strong>1.00&ndash;1.26</strong> mean selected updates &nbsp;&middot;&nbsp; <strong>+3.3 pp</strong> largest gain over the best fixed depth</p>
         <figure>
-          <img loading="lazy" src="assets/main-results.png" width="1980" height="598" alt="DeepJEPA success gains, mean selected depth, and performance relative to fixed-depth baselines across five tasks.">
+          <picture>
+            <source srcset="assets/main-results.svg" type="image/svg+xml">
+            <img loading="lazy" src="assets/main-results.png" width="1980" height="598" alt="DeepJEPA success gains, mean selected depth, and performance relative to fixed-depth baselines across five tasks.">
+          </picture>
           <figcaption><strong>DeepJEPA improves or matches the fixed-depth frontier while remaining shallow on average.</strong> Values are means over three training and evaluation seed pairs.</figcaption>
         </figure>
         <div class="table-scroll" role="region" aria-label="Main DeepJEPA results" tabindex="0">
@@ -261,7 +270,10 @@
           <blockquote>Allocate internal computation where it can change the planner's decision.</blockquote>
         </div>
         <figure>
-          <img loading="lazy" src="assets/compute-allocation.png" width="2902" height="702" alt="Adaptive computation rises around contact onset and sustained object contact.">
+          <picture>
+            <source srcset="assets/compute-allocation.svg" type="image/svg+xml">
+            <img loading="lazy" src="assets/compute-allocation.png" width="2902" height="702" alt="Adaptive computation rises around contact onset and sustained object contact.">
+          </picture>
           <figcaption><strong>Adaptive computation is interaction aligned.</strong> Refinement increases near contact and falls after release.</figcaption>
         </figure>
       </section>
